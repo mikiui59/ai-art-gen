@@ -13,7 +13,7 @@ You'll need an Nvidia GPU, preferably with a decent amount of VRAM. (On my video
 By creation art 600X400 pixels it takes:
 
 - GPU Memory Usage: `7967MiB`
-- By 1500 iteration: `13:49`
+- By 1500 iteration: `14 min`
 - 1.80 Iteration per sec
 
 
