@@ -45,14 +45,14 @@ optional arguments:
                         Image size (width height) (default: [600, 400])
 ```
 
-# Example Usage
+# Example
 ```
   python3 random_name_art.py
   #lemon eye
   python3 gen.py -p "lemon eye"
   
 ```
-<img src="l_eye.png" width="320">
+<img src="l_eye.png" width="420">
 
 ## Advanced Usage
 ```
@@ -151,7 +151,7 @@ optional arguments:
   python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "flower eye" -in "gradient" -o output/flower_eye.png
   
 ```
-<img src="flower_eye.png" width="320">
+<img src="flower_eye.png" width="520">
 
 
 ## License
