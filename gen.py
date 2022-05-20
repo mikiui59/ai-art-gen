@@ -13,7 +13,7 @@ from tqdm import tqdm
 parser = argparse.ArgumentParser(description='Ai Art Generator With Upscale Image')
 
 parser.add_argument("-p",    "--prompts", type=str, help="Text prompts", default=None, dest='prompts')
-parser.add_argument("-i",    "--iterations", type=int, help="Number of iterations", default=2500, dest='max_iterations')
+parser.add_argument("-i",    "--iterations", type=int, help="Number of iterations", default=1500, dest='max_iterations')
 parser.add_argument("-s",    "--size", nargs=2, type=int, help="Image size (width height) (default: %(default)s)", default=[600,400], dest='size')
 
 if __name__ == "__main__":
@@ -24,7 +24,8 @@ if __name__ == "__main__":
   itr=args.max_iterations
   size=args.size
   
- 
+  if text==None:
+    text=input('Enter prompts: ')
 
   n=text
   name=n.replace(' ','_')
