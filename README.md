@@ -2,9 +2,9 @@
 For automating the creation of large batches of AI-generated artwork utilizing VQGAN+CLIP.  
 Some example images that I've created via this process:  
 
-<img src="e1.png" width="350">
-<img src="e2.png" width="350">
-<img src="e3.png" width="350">
+<img src="e1.png" width="550">
+<img src="e2.png" width="550">
+<img src="e3.png" width="550">
 
 # Requirements
 
