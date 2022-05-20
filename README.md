@@ -1,6 +1,6 @@
 # AI Art Gen
 For automating the creation of large batches of AI-generated artwork utilizing VQGAN+CLIP.  
-Some example images that I've created via this process:  
+Some examples images that I've created via this process:  
 
 <img src="e1.png" width="550">
 <img src="e2.png" width="550">
@@ -8,7 +8,8 @@ Some example images that I've created via this process:
 
 # Requirements
 
-You'll need an Nvidia GPU, preferably with a decent amount of VRAM. 12GB of VRAM is sufficient for 512x512 output images, and 8GB should be enough for 384x384. To generate 1024x1024 images, you'll need ~24GB of VRAM. Generating small images and then upscaling via [ESRGAN](https://github.com/xinntao/Real-ESRGAN) or some other package provides very good results as well.
+You'll need an Nvidia GPU, preferably with a decent amount of VRAM. 
+
 
 # Install
 
@@ -116,7 +117,8 @@ Random text generator: `python3 random_name_art.py`
 ```
   python3 random_name_art.py
   #lemon eye
-  CUDA_LAUNCH_BLOCKING=1 python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "lemon eye" -in "gradient" -o output/l_eye.png'
+  python3 gen.py -p "lemon eye"
+  
 ```
 <img src="l_eye.png" width="320">
 
