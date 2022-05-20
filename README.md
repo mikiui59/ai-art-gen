@@ -149,6 +149,7 @@ optional arguments:
   python3 random_name_art.py
   #flower eye
   python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "flower eye" -in "gradient" -o output/flower_eye.png
+  python3 upscale.py -f output/flower_eye.png
   
 ```
 <img src="flower_eye.png" width="520">
