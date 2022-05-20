@@ -1,4 +1,4 @@
-git clone https://github.com/rbbrdckybk/ai-art-generator
+git clone https://github.com/mikiui59/ai-art-gen
 cd ai-art-generator
 
 conda install -c anaconda git urllib3
