@@ -1,5 +1,8 @@
 import os
 import numpy as np
+
+import argparse
+
 from PIL import Image
 from ISR.models import RDN,RRDN
 from keras.backend import clear_session
@@ -7,27 +10,38 @@ import gc
 import subprocess
 from tqdm import tqdm
 
-try:
-  with open('text.txt','r') as f:
-    text=f.read()
-except:
-  text=input("Enter text:")
+parser = argparse.ArgumentParser(description='Ai Art Generator With Upscale Image')
 
-n=text
-name=n.replace(' ','_')
-os.system(f'CUDA_LAUNCH_BLOCKING=1 python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "{n}" -in "gradient" -o output/{name}.png')
+parser.add_argument("-p",    "--prompts", type=str, help="Text prompts", default=None, dest='prompts')
+parser.add_argument("-i",    "--iterations", type=int, help="Number of iterations", default=2500, dest='max_iterations')
+parser.add_argument("-s",    "--size", nargs=2, type=int, help="Image size (width height) (default: %(default)s)", default=[600,400], dest='size')
 
-rdn = RRDN(weights='gans')
+if __name__ == "__main__":
 
-img = Image.open(f'output/{name}.png')
-lr_img = np.array(img)
+  args = parser.parse_args()
+  
+  text=args.prompts
+  itr=args.max_iterations
+  size=args.size
+  
+ 
 
-sr_img = rdn.predict(lr_img,by_patch_of_size=30)
-image=Image.fromarray(sr_img)
-image.save(f'output/{name}.png')
+  n=text
+  name=n.replace(' ','_')
+  
+  os.system(f'CUDA_LAUNCH_BLOCKING=1 python3 vqgan.py -s {size[0]} {size[1]} -lr 0.085 -i {itr} -opt "RMSprop" -p "{n}" -in "gradient" -o output/{name}.png')
 
-f=open('output/art.txt','a')
-f.write(f'output/{name}.png\n')
-f.close()
+  rdn = RRDN(weights='gans')
 
-del rdn,image,lr_img
+  img = Image.open(f'output/{name}.png')
+  lr_img = np.array(img)
+
+  sr_img = rdn.predict(lr_img,by_patch_of_size=30)
+  image=Image.fromarray(sr_img)
+  image.save(f'output/{name}.png')
+
+  f=open('output/art.txt','a')
+  f.write(f'output/{name}.png\n')
+  f.close()
+
+  del rdn,image,lr_img
