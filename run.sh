@@ -2,7 +2,7 @@ git clone https://github.com/rbbrdckybk/ai-art-generator
 cd ai-art-generator
 
 conda install -c anaconda git urllib3
-pip3 install transformers keyboard pillow ftfy regex tqdm omegaconf pytorch-lightning IPython kornia imageio imageio-ffmpeg einops torch_optimizer
+pip3 install transformers keyboard pillow ftfy regex tqdm omegaconf pytorch-lightning IPython kornia imageio imageio-ffmpeg einops torch_optimizer ISR
 
 git clone https://github.com/openai/CLIP
 git clone https://github.com/CompVis/taming-transformers
