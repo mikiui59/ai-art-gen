@@ -10,9 +10,17 @@ Some example images that I've created via this process:
 
 You'll need an Nvidia GPU, preferably with a decent amount of VRAM. 12GB of VRAM is sufficient for 512x512 output images, and 8GB should be enough for 384x384. To generate 1024x1024 images, you'll need ~24GB of VRAM. Generating small images and then upscaling via [ESRGAN](https://github.com/xinntao/Real-ESRGAN) or some other package provides very good results as well.
 
-# Setup
+# Install
 
-Run `run.sh` to install all dependencies
+Clone repo and run `run.sh` to install all dependencies
+```
+  git clone https://github.com/mikiui59/ai-art-gen.git
+  cd ai-art-gen
+  
+  ./run.sh
+```
+
+
 
 # Usege
 
@@ -44,5 +52,7 @@ Random text generator: `python3 random_name_art.py`
 ```
 <img src="l_eye.png" width="320">
 
+
 ## License
+
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
