@@ -4,8 +4,15 @@ from ISR.models import RDN,RRDN
 from keras.backend import clear_session
 
 import os
+import argparse
 
-name=input('Path to image: ')
+parser = argparse.ArgumentParser(description='Ai Art Generator With Upscale Image')
+
+parser.add_argument("-f",    "--file", type=str, help="Image path", default=None, dest='file')
+
+args = parser.parse_args()
+
+name=args.file
 
 rdn = RRDN(weights='gans')
 
