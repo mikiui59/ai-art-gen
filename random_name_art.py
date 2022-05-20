@@ -23,6 +23,8 @@ else:
     text+=" "+ place[random.randint(0,len(place)-1)]
     if random.random()>=0.5:
         text+=" in the style of "+ styles[random.randint(0,len(styles)-1)] 
-        
+      
+print(text)
+
 with open('text.txt','w') as f:
   f.write(text)
