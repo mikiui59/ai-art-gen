@@ -34,8 +34,12 @@ usage: vqgan.py [-h] [-p PROMPTS] [-ip IMAGE_PROMPTS] [-i MAX_ITERATIONS]
                 [-vsd VIDEO_STYLE_DIR] [-cd CUDA_DEVICE]
 ```
 
+Random text generator: `python3 random_name_art.py`
+
 # Example
 ```
+  python3 random_name_art.py
+  #lemon eye
   CUDA_LAUNCH_BLOCKING=1 python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "lemon eye" -in "gradient" -o output/l_eye.png'
 ```
 <img src="l_eye.png" width="320">
