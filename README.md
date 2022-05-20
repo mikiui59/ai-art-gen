@@ -22,7 +22,7 @@ Clone repo and run `run.sh` to install all dependencies
 
 
 
-# Usege
+# Usage
 
 ```
 usage: vqgan.py [-h] [-p PROMPTS] [-ip IMAGE_PROMPTS] [-i MAX_ITERATIONS] [-se DISPLAY_FREQ] [-s SIZE SIZE]
