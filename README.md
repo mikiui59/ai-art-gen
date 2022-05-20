@@ -8,7 +8,13 @@ Some examples images that I've created via this process:
 
 # Requirements
 
-You'll need an Nvidia GPU, preferably with a decent amount of VRAM. 
+You'll need an Nvidia GPU, preferably with a decent amount of VRAM. (On my video card Nvidia Geforce 1080Ti)  
+
+By creation art 600X400 pixels it takes:
+
+- GPU Memory Usage: `7967MiB`
+- By 1500 iteration: `13:49`
+- 1.80 Iteration per sec
 
 
 # Install
@@ -24,7 +30,31 @@ Clone repo and run `run.sh` to install all dependencies
 
 
 # Usage
+```
+usage: gen.py [-h] [-p PROMPTS] [-i MAX_ITERATIONS] [-s SIZE SIZE]
 
+Ai Art Generator With Upscale Image
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PROMPTS, --prompts PROMPTS
+                        Text prompts
+  -i MAX_ITERATIONS, --iterations MAX_ITERATIONS
+                        Number of iterations
+  -s SIZE SIZE, --size SIZE SIZE
+                        Image size (width height) (default: [600, 400])
+```
+
+# Example Usage
+```
+  python3 random_name_art.py
+  #lemon eye
+  python3 gen.py -p "lemon eye"
+  
+```
+<img src="l_eye.png" width="320">
+
+## Advanced Usage
 ```
 usage: vqgan.py [-h] [-p PROMPTS] [-ip IMAGE_PROMPTS] [-i MAX_ITERATIONS] [-se DISPLAY_FREQ] [-s SIZE SIZE]
                 [-ii INIT_IMAGE] [-in INIT_NOISE] [-iw INIT_WEIGHT] [-m CLIP_MODEL] [-conf VQGAN_CONFIG]
@@ -111,16 +141,17 @@ optional arguments:
                         Cuda device to use (default: cuda:0)
 ```
 
-Random text generator: `python3 random_name_art.py`
+#Random text generator 
+- `python3 random_name_art.py`
 
-# Example
+# Advanced Example
 ```
   python3 random_name_art.py
-  #lemon eye
-  python3 gen.py -p "lemon eye"
+  #flower eye
+  python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "flower eye" -in "gradient" -o output/flower_eye.png
   
 ```
-<img src="l_eye.png" width="320">
+<img src="flower_eye.png" width="320">
 
 
 ## License
