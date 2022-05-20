@@ -99,7 +99,7 @@ if __name__ == "__main__":
     args = vq_parser.parse_args()
 
     if not args.prompts and not args.image_prompts:
-        args.prompts = "A cute, smiling, Nerdy Rodent"
+        args.prompts = "fire in forest"
 
     if args.cudnn_determinism:
         torch.backends.cudnn.deterministic = True
