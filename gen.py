@@ -10,12 +10,15 @@ import gc
 import subprocess
 from tqdm import tqdm
 
-with open('text.txt','r') as f:
-  text=f.read()
+try:
+  with open('text.txt','r') as f:
+    text=f.read()
+except:
+  text=input("Enter text:")
 
 n=text
 name=n.replace(' ','_')
-os.system(f'cd ai-art-generator && CUDA_LAUNCH_BLOCKING=1 python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "{n}" -in "gradient" -o output/{name}.png')
+os.system(f'CUDA_LAUNCH_BLOCKING=1 python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 0.085 -i 2500 -opt "RMSprop" -p "{n}" -in "gradient" -o output/{name}.png')
 
 rdn = RRDN(weights='gans')
 
