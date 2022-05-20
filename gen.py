@@ -1,7 +1,4 @@
-import random
 import os
-import torch
-from IPython.display import HTML, Javascript, display
 import numpy as np
 from PIL import Image
 from ISR.models import RDN,RRDN
@@ -22,15 +19,15 @@ os.system(f'CUDA_LAUNCH_BLOCKING=1 python3 vqgan.py -s 600 400 -cd "cuda:0" -lr 
 
 rdn = RRDN(weights='gans')
 
-img = Image.open(f'ai-art-generator/output/{name}.png')
+img = Image.open(f'output/{name}.png')
 lr_img = np.array(img)
 
 sr_img = rdn.predict(lr_img,by_patch_of_size=30)
 image=Image.fromarray(sr_img)
-image.save(f'ai-art-generator/output/{name}.png')
+image.save(f'output/{name}.png')
 
-f=open('ai-art-generator/output/art.txt','a')
-f.write(f'ai-art-generator/output/{name}.png\n')
+f=open('output/art.txt','a')
+f.write(f'output/{name}.png\n')
 f.close()
 
 del rdn,image,lr_img
