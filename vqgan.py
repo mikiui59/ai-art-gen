@@ -49,11 +49,10 @@ import warnings
 warnings.filterwarnings('ignore')
 
 if __name__ == "__main__":
-    # Check for GPU and reduce the default image size if low VRAM
     default_image_size = 512  # >8GB VRAM
     if not torch.cuda.is_available():
         default_image_size = 256  # no GPU found
-    elif get_device_properties(0).total_memory <= 2 ** 33:  # 2 ** 33 = 8,589,934,592 bytes = 8 GB
+    elif get_device_properties(0).total_memory <= 2 ** 33:
         default_image_size = 318  # <8GB VRAM
 
     # Create the parser
@@ -653,15 +652,19 @@ if __name__ == "__main__":
     # Set the optimiser
     def get_opt(opt_name, opt_lr):
         if opt_name == "Adam":
-            opt = optim.Adam([z], lr=opt_lr)	# LR=0.1 (Default)
+            opt = optim.Adam([z], lr=opt_lr)
         elif opt_name == "AdamW":
             opt = optim.AdamW([z], lr=opt_lr)
+            
         elif opt_name == "Adagrad":
             opt = optim.Adagrad([z], lr=opt_lr)
+        
         elif opt_name == "Adamax":
             opt = optim.Adamax([z], lr=opt_lr)
+        
         elif opt_name == "DiffGrad":
-            opt = DiffGrad([z], lr=opt_lr, eps=1e-9, weight_decay=1e-9) # NR: Playing for reasons
+            opt = DiffGrad([z], lr=opt_lr, eps=1e-9, weight_decay=1e-9)
+        
         elif opt_name == "AdamP":
             opt = AdamP([z], lr=opt_lr)
         elif opt_name == "RAdam":
